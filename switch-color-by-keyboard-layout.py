@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import asyncio
 from dbus_next.aio import MessageBus
@@ -7,9 +9,9 @@ layouts_list=[]
 def on_layout_changed(idx):
     print(f'layout changed: {idx} -> {layouts_list[idx]}')
     if idx:
-        os.system("polychromatic-cli -d keyboard -o brightness -p 75")
+        os.system('polychromatic-cli -s IO2312F53000046 -e "RU_KeyBoard"')
     else:
-        os.system("polychromatic-cli -d keyboard -o brightness -p 75")
+        os.system('polychromatic-cli -s IO2312F53000046 -e "EN_KeyBoard"')
 
 
 
