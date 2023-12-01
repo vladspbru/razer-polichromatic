@@ -38,8 +38,7 @@ async def main():
 
     layout.on_layout_list_changed(on_layout_list_changed)
 
-    current_layout = await layout.call_get_layout()
-    print(f"Current Layout: {current_layout}")
+    on_layout_changed( await layout.call_get_layout() )
     layout.on_layout_changed(on_layout_changed)
 
     await loop.create_future()
