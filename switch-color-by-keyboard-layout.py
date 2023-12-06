@@ -6,12 +6,16 @@ from dbus_next.aio import MessageBus
 
 layouts_list=[]
 
+
+keyboard_serial="PM2339F73400026" #"IO2312F53000046"
+
+
 def on_layout_changed(idx):
     print(f'layout changed: {idx} -> {layouts_list[idx]}')
     if idx:
-        os.system('polychromatic-cli -s IO2312F53000046 -e "RU_KeyBoard"')
+        os.system(f'polychromatic-cli -s {keyboard_serial} -e "RU_KeyBoard"')
     else:
-        os.system('polychromatic-cli -s IO2312F53000046 -e "EN_KeyBoard"')
+        os.system(f'polychromatic-cli -s {keyboard_serial} -e "EN_KeyBoard"')
 
 
 
